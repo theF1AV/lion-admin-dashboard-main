@@ -1,3 +1,4 @@
+
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -39,7 +40,7 @@ const formSchema = z.object({
 });
 
 interface ProductFormProps {
-  initialData?: ProductType | null; //Must have "?" to make it optional
+  initialData?: ProductType | null; 
 }
 
 const ProductForm: React.FC<ProductFormProps> = ({ initialData }) => {
@@ -68,6 +69,7 @@ const ProductForm: React.FC<ProductFormProps> = ({ initialData }) => {
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
+    // @ts-ignore
     defaultValues: initialData
       ? {
           ...initialData,
